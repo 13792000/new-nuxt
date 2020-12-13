@@ -4,7 +4,7 @@
       <b-col md="8">
         <b-card>
           <b-row>
-            <b-col md="4" v-for="item in items" :key="item.id">
+            <b-col md="4" v-for="item in items" :key="item.id" class="mb-4">
               <item :item="item"/>
             </b-col>
           </b-row>
@@ -20,25 +20,15 @@ import item from '~/components/item'
 export default {
   data() {
     return {
-      items:[
-        {id: 1, name: 'assad'},
-        {id: 2, name: 'assad'},
-        {id: 3, name: 'assad'},
-        {id: 4, name: 'assad'},
-        {id: 5, name: 'assad'},
-        {id: 6, name: 'assad'},
-        {id: 7, name: 'assad'},
-        {id: 8, name: 'assad'},
-        {id: 9, name: 'assad'},
-        {id: 10, name: 'assad'},
-        {id: 11, name: 'assad'},
-        {id: 12, name: 'assad'},
-        {id: 13, name: 'assad'},
-        {id: 14, name: 'assad'},
-        {id: 15, name: 'assad'},
-        {id: 16, name: 'assad'},
-      ]
+      items:null
     }
+  },
+  // created() {
+  //   console.log(this.items);
+  //   this.$store.dispatch('fetch')
+  // },
+  async fetch(){
+    this.items = await fetch('http://localhost:3001/items').then(res => res.json())
   },
   components: {
     item
