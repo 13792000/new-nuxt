@@ -5,19 +5,18 @@ const createStore = () => {
       items: []
     },
     mutations: {
-      setValue(state,val){
-        state.items = val
+      setValue(state,paylod){
+        state.items = paylod
       }
     },
     actions: {
-      async fetch(){
-        const data = await fetch('http://localhost:3001/items').then((res => res.json()))
-        $store.commit('setValue',data)
-      },
+      cachData(context,paylod){
+        context.commit('setValue',paylod)
+      }
     },
     getters: {
       items(state){
-        return state.items
+          return state.items
       }
     }
   })
