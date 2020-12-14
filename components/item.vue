@@ -1,24 +1,24 @@
 <template>
   <b-col md="4" class="cart w-100 p-0" >
-    <div class="d-flex-column h-100" >
+    <div class="d-flex flex-column h-100" >
       <div class="d-flex-column px-2">
         <a href="/">
           <span>
-            <img class="w-100 pt-1 mb-1" height="250" src="~/assets/img/mihan.jpg" alt="img">
+            <img class="w-100 pt-2 mb-1" height="250" src="~/assets/img/mihan.jpg" alt="img">
           </span>
           <div class="mb-2">{{item.title}}</div>
         </a>
       </div>
       <div class="w-100 px-2 mt-auto">
         <div class="mt-auto">
-          <b-row class="align-items-center">
+          <b-row class="align-items-center d-flex mb-2">
             <b-col>
-              <div class="d-flex justify-content-start">
-                <div class="mt-auto btn-danger px-2 rounded-pill">{{item.off.toLocaleString("ar-SA")}}%</div>
+              <div v-if="item.off" class="d-flex justify-content-start">
+                <div  class="mt-auto btn-danger px-2 rounded-pill">{{item.off.toLocaleString("ar-SA")}}%</div>
                 <div class="ml-2">{{item.price.toLocaleString("ar-SA")}}</div>
               </div>
               <div class="text-left">
-                <span>{{item.price.toLocaleString("ar-SA")}}</span>
+                <span>{{ offPrice(item.price,item.off).toLocaleString("ar-SA") }}</span>
                 <span>تومان</span>
               </div>
             </b-col>
@@ -37,6 +37,11 @@
 <script>
 export default {
   props: ['item'],
+  methods: {
+    offPrice(price,off){
+      return (price - ((off / 100) * price))
+    }
+  },
 }
 </script>
 
@@ -55,8 +60,14 @@ export default {
 a {
   color: #000000;
   text-decoration: none;
+  transition: .2s;
+  overflow: hidden;
 }
 a:hover{
   color: #a33e3e;
+}
+a:hover img{
+  transition: .5s;
+  transform: scale(1.1);
 }
 </style>
