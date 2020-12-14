@@ -11,7 +11,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#3B8070' },
+  loading: {
+    color: '#e28080',
+    height: '2px',
+  },
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
   ],
@@ -41,4 +44,7 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   },
+  server: {
+    port: 8080
+  }
 }
