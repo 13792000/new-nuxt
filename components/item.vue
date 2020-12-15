@@ -3,9 +3,9 @@
     <div class="d-flex flex-column h-100" >
       <div class="d-flex-column px-2">
         <a href="/">
-          <span>
-            <img class="w-100 pt-2 mb-1" height="250" src="~/assets/img/mihan.jpg" alt="img">
-          </span>
+          <div>
+            <img class="w-100 pt-2 mb-1 " height="250" src="~/assets/img/mihan.jpg" alt="img">
+          </div>
           <div class="mb-2">{{item.title}}</div>
         </a>
       </div>
@@ -46,28 +46,41 @@ export default {
 </script>
 
 <style scoped>
+*,*:hover {
+  box-sizing: border-box;
+}
 .cart {
-  border-bottom: 1px solid #ebebeb7a;
-  border-left: 1px solid #ebebeb7a;
+  border-bottom: 1px solid #e99d9d2f;
+  border-left: 1px solid #e99d9d2f;
   font-size: .95rem;
   font-weight: 400;
   line-height: 1.75;
   transition: .2s;
+  overflow: hidden;
+
 }
-.cart:hover{
+.cart:hover {
   box-shadow: 2px 2px 6px #adadadb6,-2px -2px 6px #adadadc2;
 }
 a {
-  color: #000000;
+  color: #1D1B1B;
   text-decoration: none;
   transition: .2s;
   overflow: hidden;
 }
-a:hover{
-  color: #a33e3e;
+a:hover {
+  color: #EC4D37;
 }
-a:hover img{
+a:hover img {
   transition: .5s;
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+svg{
+  color: #1D1B1B;
+  transition: .2s;
+}
+svg:hover {
+  color: #EC4D37;
+  cursor: pointer;
 }
 </style>
