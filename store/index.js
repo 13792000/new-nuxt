@@ -12,7 +12,7 @@ const createStore = () => {
     actions: {
       cachData(context,paylod){
         context.commit('setValue',paylod)
-      }
+      },
     },
     getters: {
       items(state){

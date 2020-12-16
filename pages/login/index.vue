@@ -11,7 +11,7 @@
           <b-form-input v-model="password"></b-form-input>
         </b-col>
         <b-col md="12" class="mb-2">
-          <b-button variant="warning">login</b-button>
+          <b-button variant="warning" @click="fetch()" id="btn">Login</b-button>
         </b-col>
       </b-row>
     </div>
@@ -19,20 +19,36 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
-      email: '',
-      password: ''
+      email: null,
+      password: null
     }
   },
-  async fetch({ $axios }) {
-    const data = await $axios.$post('http://localhost:3001/users',{
-      email: "fsdfsdfsdfds",
-      password: "this.password",
-      token: "adsfasd32823jnzsd2"
-    })
+  methods: {
+    async fetch() {
+      const res = await axios.post('http://localhost:3001/login',{
+        email: this.email,
+        password: this.password,
+      })
+      console.log(res.data);
+    }
   },
 
 }
 </script>
+
+<style scoped>
+#btn{
+  font-weight: bold;
+  background-color: #1D1B1B;
+  color: #EC4D37;
+  border: none;
+}
+#btn:hover {
+  color: #1D1B1B;
+  background-color: #EC4D37;
+}
+</style>

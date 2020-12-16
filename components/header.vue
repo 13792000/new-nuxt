@@ -10,9 +10,9 @@
   div{
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 90;
     background-color: #1D1B1B;
-    box-shadow: 0 2px 6px #adadadb6
+    box-shadow: 0 2px 6px #5f5f5fb6;
   }
   h3{
     font-weight: 600;

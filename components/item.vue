@@ -11,11 +11,11 @@
       </div>
       <div class="w-100 px-2 mt-auto">
         <div class="mt-auto">
-          <b-row class="align-items-center d-flex mb-2">
+          <b-row class="align-items-center d-flex ">
             <b-col>
               <div v-if="item.off" class="d-flex justify-content-start">
                 <div  class="mt-auto btn-danger px-2 rounded-pill">{{item.off.toLocaleString("ar-SA")}}%</div>
-                <div class="ml-2">{{item.price.toLocaleString("ar-SA")}}</div>
+                <div class="ml-2" id="price">{{item.price.toLocaleString("ar-SA")}}</div>
               </div>
               <div class="text-left">
                 <span>{{ offPrice(item.price,item.off).toLocaleString("ar-SA") }}</span>
@@ -57,7 +57,9 @@ export default {
   line-height: 1.75;
   transition: .2s;
   overflow: hidden;
-
+}
+#price {
+  color: #887c7c;
 }
 .cart:hover {
   box-shadow: 2px 2px 6px #adadadb6,-2px -2px 6px #adadadc2;
